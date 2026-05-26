@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 230 56" width="230" height="56">
+  <g transform="translate(0,6)">
+    <rect x="0" y="10" width="36" height="36" rx="3" fill="#F5EDE0"></rect>
+    <g fill="#FF7347">
+      <rect x="5" y="18" width="12" height="6" rx="1"></rect>
+      <rect x="19" y="18" width="12" height="6" rx="1"></rect>
+      <rect x="5" y="26" width="12" height="6" rx="1"></rect>
+      <rect x="19" y="26" width="12" height="6" rx="1"></rect>
+    </g>
+    <path d="M18 2 q-2 5 0 10 q2-5 0-10" fill="#8CDA55"></path>
+  </g>
+  <text x="46" y="38" font-family="&#39;Passion One&#39;,&#39;Oswald&#39;,&#39;Arial Black&#39;,sans-serif" font-weight="900" font-size="30" letter-spacing="0.5" fill="#F5EDE0">TIJOLINHO</text>
+  <text x="194" y="38" font-family="&#39;Passion One&#39;,&#39;Oswald&#39;,&#39;Arial Black&#39;,sans-serif" font-weight="900" font-size="30" letter-spacing="0.5" fill="#8CDA55">ECO</text>
+</svg>

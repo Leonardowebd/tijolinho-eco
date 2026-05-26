@@ -1,0 +1,1320 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tijolinho Eco — Antes de Construir</title>
+<meta name="description" content="Eng. Failon Menezes reuniu o que ele gostaria de saber antes de começar. E-book + Mini Curso em vídeo sobre tijolo ecológico. Direto, técnico, honesto.">
+<meta name="robots" content="index, follow">
+<link rel="icon" href="assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Passion+One:wght@700;900&family=Roboto+Flex:opsz,wght@8..144,300;8..144,400;8..144,500;8..144,600;8..144,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/tokens.css">
+<style>
+/* =====================================================================
+   RESET + BASE
+   ===================================================================== */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box }
+html { scroll-behavior:smooth }
+body {
+  font-family:var(--font-body);
+  background:var(--te-cream);
+  color:var(--te-ink);
+  line-height:var(--lh-body);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+img { display:block; max-width:100% }
+a { color:inherit }
+
+/* =====================================================================
+   TYPE HELPERS
+   ===================================================================== */
+.disp, .sec-h {
+  font-family:var(--font-display);
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:-0.01em;
+  line-height:0.94;
+}
+.sec-h { font-weight:700; line-height:1.0 }
+.disp em, .sec-h em {
+  font-family:var(--font-display);
+  font-weight:700; font-style:italic;
+  text-transform:none; letter-spacing:-0.015em;
+}
+.eyebrow {
+  display:inline-flex; align-items:center; gap:10px;
+  font-family:var(--font-body);
+  font-size:clamp(10px,1.05vw,12px);
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:0.22em;
+  color:var(--te-orange);
+}
+.eyebrow::before {
+  content:"";
+  width:24px; height:1.5px;
+  background:currentColor;
+}
+.eyebrow.on-dark { color:var(--te-green-light) }
+.eyebrow.solid::before { background:currentColor }
+
+/* =====================================================================
+   BUTTONS
+   ===================================================================== */
+.btn {
+  display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  font-family:var(--font-body); font-weight:700;
+  letter-spacing:0.04em;
+  padding:18px 30px;
+  border-radius:var(--radius-md);
+  text-decoration:none; border:none; cursor:pointer;
+  transition:background var(--dur-base) var(--ease-out), transform var(--dur-fast) var(--ease-out), color var(--dur-base);
+  white-space:nowrap;
+  font-size:clamp(13px,1.3vw,15px);
+}
+.btn-primary { background:var(--te-orange); color:#fff }
+.btn-primary:hover { background:var(--te-orange-700) }
+.btn-primary:active { background:var(--te-orange-900); transform:translateY(1px) }
+.btn-dark { background:var(--te-green-dark); color:var(--te-cream) }
+.btn-dark:hover { background:var(--te-green-dark-900) }
+.btn-ghost-light {
+  background:transparent; color:var(--te-cream);
+  border:1px solid rgba(245,237,224,0.32);
+}
+.btn-ghost-light:hover { background:rgba(245,237,224,0.08); border-color:rgba(245,237,224,0.5) }
+.btn-lg { padding:20px 36px; font-size:clamp(14px,1.45vw,16px) }
+.btn .arr {
+  width:8px; height:8px;
+  border-top:2px solid currentColor;
+  border-right:2px solid currentColor;
+  transform:rotate(45deg);
+  margin-left:4px;
+}
+
+/* =====================================================================
+   LAYOUT
+   ===================================================================== */
+.page {
+  padding:clamp(10px,1.2vw,16px);
+  padding-bottom:clamp(40px,5vw,80px);
+  max-width:1480px;
+  margin:0 auto;
+  display:flex; flex-direction:column;
+  gap:clamp(10px,1vw,14px);
+}
+.card-section {
+  border-radius:clamp(20px,2.4vw,32px);
+  overflow:hidden;
+  position:relative;
+}
+.section-inner {
+  max-width:1200px;
+  margin:0 auto;
+  padding:clamp(48px,6vw,96px) clamp(24px,4vw,64px);
+  position:relative; z-index:2;
+}
+
+/* =====================================================================
+   HEADER
+   ===================================================================== */
+.site-header {
+  background:var(--te-green-dark);
+  backdrop-filter:blur(10px);
+  border-radius:999px;
+  padding:clamp(8px,1vw,12px) clamp(14px,1.6vw,20px) clamp(8px,1vw,12px) clamp(18px,2vw,28px);
+  display:flex; align-items:center; justify-content:space-between;
+  box-shadow:var(--shadow-1);
+  position:sticky; top:clamp(10px,1vw,16px);
+  z-index:100;
+}
+.site-header .logo { height:clamp(28px,3vw,38px) }
+.hcta {
+  background:var(--te-orange);
+  color:#fff;
+  padding:clamp(9px,1vw,12px) clamp(16px,1.8vw,22px);
+  border-radius:999px;
+  font-size:clamp(12px,1.2vw,14px);
+  font-weight:700;
+  text-decoration:none;
+  display:inline-flex; align-items:center; gap:10px;
+  transition:background var(--dur-base);
+  white-space:nowrap;
+}
+.hcta:hover { background:var(--te-orange-700) }
+.hcta .pulse {
+  width:8px; height:8px;
+  background:#fff; border-radius:50%;
+  box-shadow:0 0 0 3px rgba(255,255,255,0.2);
+  animation:pulse 2.2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%,100% { box-shadow:0 0 0 3px rgba(140,218,85,0.18) }
+  50% { box-shadow:0 0 0 7px rgba(140,218,85,0.06) }
+}
+
+/* =====================================================================
+   HERO
+   ===================================================================== */
+.hero {
+  background:
+    linear-gradient(94deg, rgba(28,31,24,0.82) 0%, rgba(28,31,24,0.62) 42%, rgba(28,31,24,0.18) 68%, rgba(28,31,24,0.04) 100%),
+    url('assets/hero-bg2.webp') center center / cover no-repeat,
+    var(--te-cream);
+  min-height:clamp(560px,76vh,820px);
+}
+.hero .section-inner {
+  padding-top:clamp(64px,8vw,120px);
+  padding-bottom:clamp(48px,6vw,80px);
+  display:grid;
+  grid-template-columns:minmax(0, 1.05fr) minmax(0, 1fr);
+  gap:clamp(28px,4vw,60px);
+  align-items:stretch;
+  min-height:inherit;
+}
+.hero-content {
+  color:var(--te-cream);
+  display:flex; flex-direction:column;
+  justify-content:flex-end;
+  align-self:flex-end;
+  gap:clamp(20px,2.4vw,30px);
+}
+.hero-badge {
+  display:inline-flex; align-items:center; gap:10px;
+  background:rgba(140,218,85,0.14);
+  border:1px solid rgba(140,218,85,0.32);
+  color:var(--te-green-light);
+  font-size:clamp(9px,0.95vw,11px);
+  font-weight:700;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  padding:9px 16px;
+  border-radius:999px;
+  width:fit-content;
+}
+.hero-badge .dot {
+  width:7px; height:7px; background:var(--te-green-light); border-radius:50%;
+  box-shadow:0 0 0 3px rgba(140,218,85,0.22);
+  animation:pulse 2.2s ease-in-out infinite;
+}
+.hero h1 {
+  font-size:clamp(46px,7vw,108px);
+  line-height:0.9;
+}
+.hero h1 .l1 { display:block }
+.hero h1 .l2 { display:block; color:var(--te-orange) }
+.hero h1 em { color:var(--te-green-light); display:block }
+.hero-sub {
+  font-size:clamp(15px,1.45vw,19px);
+  color:rgba(245,237,224,0.78);
+  line-height:1.6;
+  max-width:520px;
+  font-weight:300;
+}
+.hero-sub strong { color:var(--te-cream); font-weight:500 }
+.hero-ctas { display:flex; flex-wrap:wrap; gap:12px; align-items:center }
+.hero-guarantee {
+  font-size:clamp(11px,1.05vw,13px);
+  color:rgba(245,237,224,0.55);
+  display:flex; align-items:center; gap:8px;
+}
+.hero-guarantee::before {
+  content:"";
+  width:14px; height:14px;
+  border:1.5px solid rgba(140,218,85,0.5);
+  border-radius:50%; flex-shrink:0;
+}
+
+/* Hero right — Failon breakout effect */
+.hero-meta {
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  padding-bottom:clamp(48px,6vw,80px);
+}
+.hero-breakout {
+  position:relative;
+  width:clamp(240px,23vw,320px);
+}
+.hero-breakout-photo {
+  display:block;
+  position:relative;
+  z-index:2;
+  width:100%;
+  height:clamp(360px,50vh,540px);
+  object-fit:cover;
+  object-position:top center;
+  border-radius:clamp(16px,1.8vw,22px);
+  box-shadow:0 32px 64px rgba(0,0,0,0.45), 0 8px 20px rgba(0,0,0,0.28);
+}
+.hero-breakout-card {
+  position:absolute;
+  bottom:clamp(-18px,-2.2vw,-12px);
+  left:clamp(-20px,-2.4vw,-14px);
+  right:clamp(-20px,-2.4vw,-14px);
+  height:55%;
+  background:var(--te-orange);
+  border-radius:clamp(20px,2.4vw,30px);
+  z-index:1;
+}
+.hero-breakout-card::before {
+  content:"";
+  position:absolute; inset:0;
+  border-radius:inherit;
+  background-image:radial-gradient(circle, rgba(255,255,255,0.14) 1px, transparent 1px);
+  background-size:18px 18px;
+}
+.hero-breakout-label {
+  position:absolute;
+  bottom:clamp(14px,1.8vw,22px);
+  left:clamp(-6px,0.5vw,0px);
+  right:clamp(-6px,0.5vw,0px);
+  z-index:3;
+  padding:0 clamp(12px,1.4vw,16px);
+}
+.hero-breakout-label strong {
+  display:block;
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:clamp(14px,1.4vw,17px);
+  color:#fff;
+  line-height:1.1;
+}
+.hero-breakout-label span {
+  display:block;
+  font-size:clamp(10px,0.95vw,12px);
+  color:rgba(255,255,255,0.72);
+  letter-spacing:0.04em;
+  margin-top:3px;
+}
+
+/* =====================================================================
+   STATS STRIP
+   ===================================================================== */
+.stats-strip {
+  background:var(--te-orange);
+  border-radius:clamp(18px,2vw,26px);
+  padding:clamp(22px,2.8vw,36px) clamp(24px,4vw,56px);
+  position:relative; overflow:hidden;
+}
+.stats-strip::before {
+  content:"";
+  position:absolute; inset:0;
+  background:url('assets/brick-texture.svg') center/clamp(220px,24vw,320px);
+  opacity:0.10;
+  filter:brightness(0) invert(1);
+}
+.stats-inner {
+  display:grid; grid-template-columns:repeat(4,1fr);
+  gap:clamp(16px,2.4vw,32px);
+  position:relative; z-index:1;
+}
+.stat { display:flex; align-items:center; gap:clamp(10px,1.4vw,18px) }
+.stat+.stat { padding-left:clamp(14px,2vw,28px); border-left:1px solid rgba(255,255,255,0.22) }
+.stat-num {
+  font-family:var(--font-display); font-weight:900;
+  font-size:clamp(40px,4.8vw,62px);
+  color:#fff; line-height:1; letter-spacing:-0.02em;
+}
+.stat-lbl {
+  font-size:clamp(11px,1vw,13px);
+  color:rgba(255,255,255,0.92);
+  line-height:1.42;
+  font-weight:500;
+}
+
+/* =====================================================================
+   MÉTODO
+   ===================================================================== */
+.metodo {
+  background:
+    linear-gradient(98deg, rgba(245,237,224,0.96) 0%, rgba(245,237,224,0.88) 42%, rgba(245,237,224,0.15) 72%, rgba(245,237,224,0) 100%),
+    url('assets/section-bg.webp') center right / cover no-repeat,
+    var(--te-cream);
+  min-height:clamp(520px,68vw,680px);
+}
+.metodo .section-inner {
+  padding-top:clamp(56px,6vw,96px);
+  padding-bottom:clamp(56px,6vw,96px);
+  display:grid;
+  grid-template-columns:minmax(0, 1fr) minmax(0, 1fr);
+  gap:clamp(28px,4vw,60px);
+  align-items:center;
+}
+.metodo-text { max-width:540px }
+.metodo-text h2 {
+  font-size:clamp(34px,4.6vw,60px);
+  color:var(--te-green-dark);
+  margin:14px 0 22px;
+}
+.metodo-text h2 em { color:var(--te-orange) }
+.metodo-text p {
+  font-size:clamp(15px,1.4vw,17px);
+  color:var(--te-ink-soft);
+  line-height:1.72;
+  margin-bottom:14px;
+}
+.metodo-text p strong { color:var(--te-green-dark); font-weight:600 }
+.metodo-points {
+  list-style:none; display:flex; flex-direction:column;
+  gap:clamp(8px,1vw,12px); margin-top:clamp(20px,2.4vw,30px);
+}
+.metodo-points li {
+  font-size:clamp(13.5px,1.3vw,15px);
+  color:var(--te-green-dark);
+  font-weight:500;
+  line-height:1.5;
+  position:relative;
+  padding-left:30px;
+  display:block;
+}
+.metodo-points li::before {
+  content:"";
+  position:absolute; left:0; top:3px;
+  width:18px; height:18px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Crect x='1' y='1' width='9' height='9' rx='2' fill='%23FF7347'/%3E%3Crect x='11' y='1' width='8' height='8' rx='2' fill='%23FF7347' opacity='.55'/%3E%3Crect x='1' y='11' width='8' height='8' rx='2' fill='%23FF7347' opacity='.55'/%3E%3Crect x='10.5' y='10.5' width='9' height='9' rx='2' fill='%23FF7347'/%3E%3C/svg%3E");
+  background-size:contain;
+  background-repeat:no-repeat;
+}
+
+/* =====================================================================
+   KIT
+   ===================================================================== */
+.kit { background:var(--te-cream) }
+.kit .section-inner { display:flex; flex-direction:column; gap:clamp(32px,4vw,52px) }
+.kit-head { max-width:740px; margin:0 auto; text-align:center }
+.kit-head h2 {
+  font-size:clamp(34px,4.4vw,60px);
+  color:var(--te-green-dark);
+  margin-top:14px; margin-bottom:14px;
+}
+.kit-head h2 em { color:var(--te-orange) }
+.kit-head p {
+  font-size:clamp(15px,1.4vw,18px);
+  color:var(--te-ink-soft); line-height:1.65;
+  max-width:580px; margin:0 auto;
+}
+.kit-grid { display:grid; grid-template-columns:1fr 1fr; gap:clamp(14px,1.6vw,20px) }
+.kit-card {
+  border-radius:clamp(18px,2vw,26px);
+  overflow:hidden;
+  display:flex; flex-direction:column;
+  position:relative;
+}
+.kit-card.ebook { background:var(--te-white); border:1px solid var(--te-cream-200) }
+.kit-card.curso { background:var(--te-green-dark) }
+.kit-card-img {
+  width:100%; aspect-ratio:1/1; position:relative; overflow:hidden;
+  flex-shrink:0;
+}
+.kit-card-img img {
+  width:100%; height:100%;
+  object-fit:cover;
+  display:block;
+}
+.kit-card.ebook .kit-card-img { background:var(--te-cream-50, #FBF7EE) }
+.kit-card.curso .kit-card-img { background:var(--te-green-dark-900, #2E3729) }
+.kit-card-body { padding:clamp(22px,2.4vw,32px); display:flex; flex-direction:column; flex:1 }
+.kit-tag {
+  display:inline-flex; align-items:center; gap:8px;
+  font-size:clamp(9px,0.9vw,11px);
+  font-weight:700; letter-spacing:0.2em; text-transform:uppercase;
+  padding:7px 14px; border-radius:999px; width:fit-content;
+  margin-bottom:clamp(14px,1.6vw,20px);
+}
+.kit-card.ebook .kit-tag { background:var(--te-orange-100); color:var(--te-orange-900) }
+.kit-card.curso .kit-tag { background:rgba(140,218,85,0.14); color:var(--te-green-light); border:1px solid rgba(140,218,85,0.28) }
+.kit-card h3 {
+  font-family:var(--font-display); font-weight:700;
+  font-size:clamp(28px,3.2vw,44px);
+  text-transform:uppercase; letter-spacing:-0.01em; line-height:1.0;
+  margin-bottom:8px;
+}
+.kit-card h3 em { font-style:italic; text-transform:none; letter-spacing:-0.01em }
+.kit-card.ebook h3 { color:var(--te-green-dark) } .kit-card.ebook h3 em { color:var(--te-orange) }
+.kit-card.curso h3 { color:var(--te-cream) } .kit-card.curso h3 em { color:var(--te-green-light) }
+.kit-lead {
+  font-size:clamp(13.5px,1.3vw,16px); line-height:1.65;
+  margin-bottom:clamp(16px,2vw,24px);
+}
+.kit-card.ebook .kit-lead { color:var(--te-ink-soft) }
+.kit-card.curso .kit-lead { color:rgba(245,237,224,0.7) }
+.kit-list { list-style:none; display:flex; flex-direction:column; gap:clamp(8px,0.9vw,12px); margin-top:auto }
+.kit-list li {
+  font-size:clamp(13px,1.2vw,15px); line-height:1.55;
+  padding-left:28px; position:relative; display:block;
+}
+.kit-list li::before {
+  content:""; position:absolute; left:0; top:3px;
+  width:16px; height:16px;
+  background-size:contain; background-repeat:no-repeat;
+}
+.kit-card.ebook .kit-list li { color:var(--te-ink-soft) }
+.kit-card.ebook .kit-list li::before {
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Crect x='2' y='2' width='16' height='16' rx='4' fill='%23FF7347'/%3E%3Cpath d='M6 10.2l2.8 2.8 5.2-5.2' stroke='white' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E");
+}
+.kit-card.curso .kit-list li { color:rgba(245,237,224,0.82) }
+.kit-card.curso .kit-list li::before {
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Ccircle cx='10' cy='10' r='8' fill='%238CDA55'/%3E%3Cpath d='M8.2 7l5.6 3-5.6 3V7z' fill='%231C1F18'/%3E%3C/svg%3E");
+}
+
+/* =====================================================================
+   REELS
+   ===================================================================== */
+.reels { background:var(--te-green-dark); position:relative; overflow:hidden }
+.reels::before {
+  content:"";
+  position:absolute; inset:0;
+  background:url('assets/brick-texture.svg') center/clamp(280px,30vw,440px);
+  opacity:0.06;
+  pointer-events:none;
+}
+.reels .section-inner { display:flex; flex-direction:column; gap:clamp(32px,4vw,52px); position:relative }
+.reels-head {
+  display:grid; grid-template-columns:1.4fr 1fr;
+  gap:clamp(24px,3vw,44px); align-items:end;
+}
+.reels-head h2 {
+  font-size:clamp(34px,4.6vw,62px);
+  color:var(--te-cream);
+  margin-top:14px;
+}
+.reels-head h2 em { color:var(--te-green-light) }
+.reels-side {
+  background:rgba(245,237,224,0.05);
+  border:1px solid rgba(140,218,85,0.18);
+  border-radius:clamp(14px,1.6vw,20px);
+  padding:clamp(18px,2vw,24px);
+  display:flex; flex-direction:column; gap:14px;
+}
+.reels-handle { display:flex; align-items:center; gap:12px }
+.reels-handle .ig-mark {
+  width:42px; height:42px; flex-shrink:0;
+  border-radius:11px;
+  background:conic-gradient(from 220deg at 30% 110%, #FFDD55 0deg, #FF543E 90deg, #C837AB 170deg, #4f5bd5 270deg, #FFDD55 360deg);
+  position:relative;
+  display:flex; align-items:center; justify-content:center;
+}
+.reels-handle .ig-mark::before {
+  content:"";
+  position:absolute; inset:7px;
+  border:2px solid #fff; border-radius:8px;
+}
+.reels-handle .ig-mark::after {
+  content:"";
+  position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+  width:11px; height:11px;
+  border:2px solid #fff; border-radius:50%;
+}
+.reels-handle .ig-dot {
+  position:absolute; top:9px; right:9px;
+  width:4px; height:4px; background:#fff; border-radius:50%;
+}
+.reels-handle .h-text strong {
+  display:block;
+  font-family:var(--font-body); font-weight:700;
+  font-size:clamp(14px,1.4vw,16px);
+  color:var(--te-cream);
+}
+.reels-handle .h-text span {
+  font-size:clamp(11px,1.05vw,13px);
+  color:rgba(245,237,224,0.55);
+}
+.reels-side p {
+  font-size:clamp(13px,1.25vw,15px);
+  color:rgba(245,237,224,0.72);
+  line-height:1.6;
+}
+.reels-side .ig-link {
+  display:inline-flex; align-items:center; gap:8px;
+  text-decoration:none;
+  font-size:clamp(12px,1.2vw,14px);
+  font-weight:600;
+  color:var(--te-green-light);
+  margin-top:2px;
+  transition:color var(--dur-base);
+}
+.reels-side .ig-link:hover { color:var(--te-cream) }
+.reels-side .ig-link .arr {
+  width:7px; height:7px;
+  border-top:2px solid currentColor; border-right:2px solid currentColor;
+  transform:rotate(45deg);
+}
+.reels-grid {
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:clamp(12px,1.4vw,18px);
+  max-width:880px;
+  margin:0 auto;
+  width:100%;
+}
+.reel-embed {
+  border-radius:clamp(14px,1.6vw,20px);
+  overflow:hidden;
+  background:#111;
+  position:relative;
+  aspect-ratio:9/16;
+}
+.reel-embed iframe {
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  border:0;
+}
+.reels-cta-row {
+  display:flex; justify-content:space-between; align-items:center;
+  flex-wrap:wrap; gap:18px;
+  padding-top:clamp(16px,2vw,24px);
+  border-top:1px solid rgba(245,237,224,0.1);
+}
+.reels-cta-row p {
+  font-size:clamp(13px,1.25vw,15px);
+  color:rgba(245,237,224,0.7);
+  max-width:520px;
+  line-height:1.55;
+}
+.reels-cta-row p strong { color:var(--te-cream); font-weight:600 }
+
+/* =====================================================================
+   AUTOR
+   ===================================================================== */
+.autor { background:var(--te-white) }
+.autor .section-inner {
+  display:grid;
+  grid-template-columns:clamp(280px,32vw,400px) 1fr;
+  gap:clamp(36px,4.5vw,68px);
+  align-items:center;
+}
+.autor-photo {
+  border-radius:clamp(18px,2vw,26px);
+  overflow:hidden;
+  position:relative;
+  aspect-ratio:3/3.6;
+  background:var(--te-green-dark);
+  box-shadow:var(--shadow-2);
+}
+.autor-photo img { width:100%; height:100%; object-fit:cover; display:block }
+.autor-photo .name-tag {
+  position:absolute; left:14px; right:14px; bottom:14px;
+  background:rgba(245,237,224,0.94);
+  backdrop-filter:blur(8px);
+  border-radius:clamp(10px,1.2vw,14px);
+  padding:clamp(12px,1.4vw,16px);
+}
+.autor-photo .name-tag strong {
+  display:block;
+  font-family:var(--font-display); font-weight:700;
+  font-size:clamp(18px,1.8vw,22px);
+  color:var(--te-green-dark); line-height:1.05;
+}
+.autor-photo .name-tag span {
+  display:block; font-size:clamp(10px,1vw,12px);
+  color:var(--te-ink-soft); letter-spacing:0.06em; margin-top:3px;
+}
+.autor-text h2 {
+  font-size:clamp(34px,4vw,56px);
+  color:var(--te-green-dark);
+  margin-top:14px; margin-bottom:10px;
+}
+.autor-text h2 em { color:var(--te-orange) }
+.autor-cargo {
+  font-size:clamp(12px,1.15vw,14px);
+  color:var(--te-ink-soft);
+  margin-bottom:clamp(18px,2vw,26px);
+  letter-spacing:0.02em;
+}
+.autor-text p {
+  font-size:clamp(15px,1.4vw,17px); color:var(--te-ink-soft); line-height:1.72;
+  margin-bottom:12px; max-width:560px;
+}
+.autor-text p strong { color:var(--te-green-dark); font-weight:600 }
+.autor-pull {
+  margin-top:clamp(22px,2.6vw,32px);
+  padding:clamp(20px,2.4vw,28px);
+  background:var(--te-cream);
+  border-radius:clamp(14px,1.6vw,20px);
+  display:flex; gap:clamp(14px,1.6vw,18px); align-items:flex-start;
+}
+.autor-pull .qm {
+  font-family:var(--font-display); font-weight:900;
+  font-style:italic; font-size:clamp(52px,6vw,74px);
+  color:var(--te-orange); line-height:0.68; flex-shrink:0;
+}
+.autor-pull blockquote {
+  font-family:var(--font-display); font-weight:700;
+  font-size:clamp(17px,1.7vw,22px);
+  color:var(--te-green-dark);
+  letter-spacing:-0.005em; line-height:1.32;
+}
+.autor-pull blockquote em { font-style:italic; color:var(--te-orange) }
+
+/* =====================================================================
+   PREÇO
+   ===================================================================== */
+.preco { background:var(--te-cream) }
+.preco .section-inner {
+  display:grid;
+  grid-template-columns:1.1fr 1fr;
+  gap:clamp(36px,5vw,72px);
+  align-items:center;
+}
+.preco-left h2 {
+  font-size:clamp(36px,4.4vw,60px);
+  color:var(--te-green-dark);
+  margin-top:14px; margin-bottom:18px;
+}
+.preco-left h2 em { color:var(--te-orange) }
+.preco-left > p {
+  font-size:clamp(15px,1.4vw,17px); color:var(--te-ink-soft); line-height:1.65;
+  margin-bottom:24px; max-width:480px;
+}
+.preco-incl { display:flex; flex-direction:column; gap:clamp(8px,0.9vw,12px); margin-top:22px }
+.preco-incl li {
+  list-style:none; font-size:clamp(13.5px,1.3vw,16px);
+  color:var(--te-green-dark); font-weight:500;
+  padding-left:30px; position:relative; line-height:1.5; display:block;
+}
+.preco-incl li::before {
+  content:""; position:absolute; left:0; top:3px;
+  width:18px; height:18px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Ccircle cx='10' cy='10' r='8' fill='none' stroke='%238CDA55' stroke-width='2'/%3E%3Cpath d='M6.5 10l2.8 2.8 4.2-4.6' stroke='%238CDA55' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E");
+  background-size:contain; background-repeat:no-repeat;
+}
+.preco-card {
+  background:var(--te-green-dark);
+  border-radius:clamp(20px,2.2vw,30px);
+  padding:clamp(28px,3.2vw,44px);
+  position:relative;
+  box-shadow:var(--shadow-3);
+}
+.preco-sticker {
+  position:absolute;
+  top:-26px; right:-18px;
+  width:clamp(100px,10.5vw,128px); height:clamp(100px,10.5vw,128px);
+  background:var(--te-orange);
+  border-radius:50%;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  color:#fff; transform:rotate(8deg); box-shadow:var(--shadow-2); text-align:center;
+  z-index:2;
+}
+.preco-sticker::before {
+  content:""; position:absolute; inset:7px; border-radius:50%;
+  border:1.5px dashed rgba(255,255,255,0.38);
+}
+.preco-sticker .sfrom { font-size:9px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; margin-bottom:2px }
+.preco-sticker .sval { font-family:var(--font-display); font-size:clamp(22px,2.4vw,28px); font-weight:900; letter-spacing:-0.01em; line-height:1 }
+.preco-sticker .sextra { font-size:9px; margin-top:3px; letter-spacing:0.1em; text-transform:uppercase; opacity:0.9 }
+.preco-card .plabel {
+  font-family:var(--font-body); font-size:11px; font-weight:700;
+  letter-spacing:0.18em; text-transform:uppercase;
+  color:var(--te-green-light); margin-bottom:14px; display:block;
+}
+.preco-de { font-size:13px; color:rgba(245,237,224,0.38); text-decoration:line-through; display:block; margin-bottom:2px }
+.preco-val {
+  font-family:var(--font-display); font-weight:900;
+  font-size:clamp(60px,7vw,90px);
+  color:var(--te-cream); line-height:0.92;
+  letter-spacing:-0.02em; display:block;
+}
+.preco-val .cents { font-size:38%; vertical-align:top; line-height:1; margin-left:3px }
+.preco-parc { font-size:13px; color:rgba(245,237,224,0.5); margin-bottom:clamp(18px,2.2vw,26px); display:block; margin-top:4px }
+.preco-card .btn { width:100%; font-size:clamp(14px,1.4vw,16px); padding:clamp(16px,1.8vw,20px) 24px }
+.preco-card .guar {
+  margin-top:clamp(14px,1.6vw,18px); font-size:12px;
+  color:rgba(245,237,224,0.5); display:flex; align-items:center; gap:10px; line-height:1.5;
+}
+.preco-card .guar .ic {
+  width:clamp(22px,2.4vw,28px); height:clamp(22px,2.4vw,28px);
+  border:1.5px solid var(--te-green-light); border-radius:50%;
+  display:inline-flex; align-items:center; justify-content:center;
+  font-family:var(--font-display); font-size:12px;
+  color:var(--te-green-light); flex-shrink:0;
+}
+.preco-pay {
+  margin-top:14px; padding-top:14px;
+  border-top:1px solid rgba(245,237,224,0.1);
+  font-size:11px; letter-spacing:0.12em; text-transform:uppercase;
+  color:rgba(245,237,224,0.42);
+}
+
+/* =====================================================================
+   FAQ
+   ===================================================================== */
+.faq { background:var(--te-white) }
+.faq .section-inner {
+  display:grid; grid-template-columns:1fr 1.6fr;
+  gap:clamp(36px,5vw,72px); align-items:start;
+}
+.faq-head h2 {
+  font-size:clamp(34px,4vw,56px);
+  color:var(--te-green-dark);
+  margin-top:14px;
+}
+.faq-head h2 em { color:var(--te-orange) }
+.faq-head p {
+  font-size:clamp(14px,1.3vw,16px); color:var(--te-ink-soft);
+  line-height:1.65; margin-top:18px; max-width:320px;
+}
+.faq-list { display:flex; flex-direction:column; gap:clamp(8px,0.9vw,12px) }
+.faq-item {
+  background:var(--te-cream);
+  border-radius:clamp(14px,1.6vw,20px);
+  padding:clamp(18px,2vw,24px);
+  cursor:pointer;
+  transition:background var(--dur-base) var(--ease-out);
+}
+.faq-item:hover { background:var(--te-cream-200) }
+.faq-item summary {
+  list-style:none;
+  display:flex; justify-content:space-between; gap:16px; align-items:center;
+  font-size:clamp(14px,1.4vw,16px); font-weight:600;
+  color:var(--te-green-dark); line-height:1.4;
+}
+.faq-item summary::-webkit-details-marker { display:none }
+.tog {
+  width:clamp(26px,2.8vw,32px); height:clamp(26px,2.8vw,32px);
+  background:var(--te-green-dark); border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  color:var(--te-cream); font-size:14px; flex-shrink:0;
+  transition:all var(--dur-base) var(--ease-out);
+}
+.faq-item[open] .tog { background:var(--te-orange); transform:rotate(45deg) }
+.faq-item p {
+  font-size:clamp(13.5px,1.3vw,15px); color:var(--te-ink-soft);
+  line-height:1.7; margin-top:clamp(10px,1.2vw,14px); max-width:640px;
+}
+
+/* =====================================================================
+   FINAL CTA
+   ===================================================================== */
+.final-cta {
+  background:
+    linear-gradient(180deg, rgba(255,115,71,0.94), rgba(228,90,46,0.94)),
+    url('assets/brick-texture.svg') center/clamp(300px,30vw,440px);
+  position:relative; overflow:hidden;
+}
+.final-cta::after {
+  content:"";
+  position:absolute;
+  width:clamp(300px,40vw,600px); height:clamp(300px,40vw,600px);
+  background:rgba(245,237,224,0.08); border-radius:50%;
+  top:-30%; right:-10%; pointer-events:none;
+}
+.final-cta .section-inner { text-align:center; max-width:860px }
+.final-cta .eyebrow { color:rgba(255,255,255,0.85); margin-bottom:18px }
+.final-cta .eyebrow::before { background:rgba(255,255,255,0.85) }
+.final-cta h2 {
+  font-size:clamp(44px,6.4vw,96px);
+  color:#fff;
+  margin-bottom:18px;
+}
+.final-cta h2 em { color:var(--te-green-dark) }
+.final-cta > .section-inner > p {
+  font-size:clamp(15px,1.5vw,18px);
+  color:rgba(255,255,255,0.92);
+  max-width:520px;
+  margin:0 auto clamp(28px,3.6vw,44px);
+  line-height:1.68;
+}
+.final-meta {
+  margin-top:clamp(18px,2vw,26px);
+  font-size:clamp(11px,1.1vw,13px);
+  color:rgba(255,255,255,0.78);
+  display:flex; justify-content:center; gap:clamp(14px,2vw,26px); flex-wrap:wrap;
+}
+.final-meta span { display:inline-flex; align-items:center; gap:8px }
+.final-meta span::before { content:""; width:6px; height:6px; background:var(--te-green-dark); border-radius:50% }
+
+/* =====================================================================
+   FOOTER
+   ===================================================================== */
+.footer {
+  background:var(--te-green-dark);
+  border-radius:clamp(20px,2.4vw,32px);
+  padding:clamp(40px,5vw,64px) clamp(24px,4vw,64px) clamp(24px,2.8vw,36px);
+  color:var(--te-cream);
+}
+.footer-top {
+  display:grid; grid-template-columns:2fr 1fr 1fr;
+  gap:clamp(28px,4vw,56px);
+  padding-bottom:clamp(24px,3vw,40px);
+  border-bottom:1px solid rgba(245,237,224,0.1);
+}
+.footer-brand img { height:clamp(38px,4vw,52px); margin-bottom:clamp(14px,1.6vw,20px) }
+.footer-brand p { font-size:clamp(13px,1.2vw,15px); color:rgba(245,237,224,0.55); line-height:1.7; max-width:380px }
+.footer-col h4 {
+  font-size:11px; font-weight:700; text-transform:uppercase;
+  letter-spacing:0.2em; color:var(--te-green-light);
+  margin-bottom:14px;
+}
+.footer-col ul { list-style:none; display:flex; flex-direction:column; gap:10px }
+.footer-col a {
+  color:rgba(245,237,224,0.7);
+  font-size:clamp(13px,1.2vw,15px);
+  text-decoration:none; transition:color var(--dur-base);
+}
+.footer-col a:hover { color:var(--te-orange) }
+.footer-bottom {
+  padding-top:clamp(18px,2vw,26px);
+  display:flex; justify-content:space-between; align-items:center;
+  font-size:clamp(11px,1vw,13px);
+  color:rgba(245,237,224,0.4);
+  letter-spacing:0.04em;
+  flex-wrap:wrap; gap:12px;
+}
+
+/* =====================================================================
+   MOBILE STICKY CTA
+   ===================================================================== */
+.sticky-cta {
+  display:none;
+  position:fixed; bottom:0; left:0; right:0; z-index:200;
+  padding:12px 16px;
+  background:var(--te-green-dark);
+  border-top:1px solid rgba(245,237,224,0.1);
+}
+.sticky-cta a {
+  display:block; width:100%;
+  background:var(--te-orange); color:#fff;
+  text-align:center; padding:16px;
+  border-radius:var(--radius-md);
+  font-weight:700; font-size:15px;
+  text-decoration:none; letter-spacing:0.04em;
+}
+
+.cta-short { display:none }
+.cta-long  { display:inline }
+@media (max-width:860px) {
+  .cta-short { display:inline }
+  .cta-long  { display:none }
+}
+
+/* =====================================================================
+   RESPONSIVE
+   ===================================================================== */
+@media (max-width:1100px) {
+  .hero .section-inner { grid-template-columns:1fr }
+  .hero-meta {
+    display:flex;
+    justify-content:center;
+    padding-bottom:clamp(20px,3vw,32px);
+    padding-top:0;
+  }
+  .hero-breakout { width:clamp(200px,50vw,280px) }
+  .hero-breakout-photo { height:clamp(220px,54vw,300px) }
+  .hero {
+    background:
+      linear-gradient(180deg, rgba(28,31,24,0.68) 0%, rgba(28,31,24,0.82) 60%, rgba(28,31,24,0.90) 100%),
+      url('assets/hero-bg2.webp') center / cover no-repeat;
+  }
+  .metodo .section-inner { grid-template-columns:1fr }
+  .metodo {
+    background:
+      linear-gradient(180deg, rgba(245,237,224,0.96) 0%, rgba(245,237,224,0.86) 70%),
+      url('assets/section-bg.webp') center / cover no-repeat;
+  }
+  .reels-head { grid-template-columns:1fr; gap:24px }
+  .reels-grid { grid-template-columns:repeat(3,1fr); max-width:100% }
+}
+
+@media (max-width:860px) {
+  .section-inner { padding:clamp(36px,6vw,52px) clamp(20px,5vw,36px) }
+  .hero { min-height:clamp(420px,68vh,600px) }
+  .hero h1 { font-size:clamp(38px,9vw,60px); line-height:0.92 }
+  .hero-sub { font-size:clamp(14px,3.4vw,16px); max-width:100% }
+  .hero-badge { font-size:9px; padding:7px 13px; letter-spacing:0.16em }
+  .hero-ctas { flex-direction:column; align-items:stretch; gap:10px }
+  .hero-ctas .btn { justify-content:center; text-align:center; padding:16px 20px; font-size:14px }
+  .hero-guarantee { font-size:11px }
+  .hero-breakout { width:clamp(180px,44vw,240px) }
+  .hero-breakout-photo { height:clamp(190px,46vw,250px) }
+  .stats-inner { grid-template-columns:1fr 1fr; gap:10px }
+  .stat+.stat { padding-left:0; border-left:none }
+  .stat { flex-direction:column; align-items:flex-start; gap:4px }
+  .stat-num { font-size:clamp(36px,8vw,52px) }
+  .stat-lbl { font-size:clamp(11px,2.4vw,13px) }
+  .kit-grid { grid-template-columns:1fr }
+  .kit-card-img { aspect-ratio:16/9 }
+  .kit-card h3 { font-size:clamp(24px,6vw,36px) }
+  .reels-grid { grid-template-columns:repeat(2,1fr) }
+  .reels-head h2 { font-size:clamp(28px,6vw,44px) }
+  .autor .section-inner { grid-template-columns:1fr; gap:28px }
+  .autor-photo { aspect-ratio:4/3; max-height:320px }
+  .preco .section-inner { grid-template-columns:1fr; gap:32px }
+  .faq .section-inner { grid-template-columns:1fr; gap:24px }
+  .faq-head p { max-width:100% }
+  .footer-top { grid-template-columns:1fr; gap:24px }
+  .site-nav { display:none }
+  .sticky-cta { display:block }
+  body { padding-bottom:76px }
+}
+
+@media (max-width:520px) {
+  .page { padding:8px; gap:8px }
+  .section-inner { padding:clamp(28px,7vw,40px) clamp(16px,5vw,22px) }
+  .card-section { border-radius:clamp(16px,4vw,22px) }
+  .hero { min-height:clamp(380px,70vh,520px) }
+  .hero h1 { font-size:clamp(32px,9.5vw,42px) }
+  .hero-sub { font-size:13px; line-height:1.58 }
+  .hero-badge { display:none }
+  .hero-ctas .btn-ghost-light { display:none }
+  .hero-guarantee { font-size:10px; gap:6px }
+  .hero-breakout { width:clamp(150px,42vw,200px) }
+  .hero-breakout-photo { height:clamp(160px,44vw,220px) }
+  .stats-strip { padding:clamp(18px,5vw,26px) clamp(14px,4vw,20px) }
+  .stat-num { font-size:clamp(30px,8.5vw,40px) }
+  .stat-lbl { font-size:11px }
+  .kit-card-img { aspect-ratio:16/9 }
+  .kit-card h3 { font-size:clamp(22px,6.5vw,30px) }
+  .kit-lead { font-size:13px }
+  .kit-list li { font-size:13px }
+  .reels-grid { grid-template-columns:1fr; max-width:320px; margin:0 auto }
+  .preco-sticker { width:86px; height:86px; top:-18px; right:-10px }
+  .preco-sticker .sval { font-size:20px }
+  .preco-val { font-size:clamp(52px,14vw,72px) }
+  .final-cta h2 { font-size:clamp(34px,10vw,50px) }
+  .footer { border-radius:clamp(16px,4vw,22px); padding:clamp(28px,6vw,40px) clamp(16px,5vw,24px) clamp(20px,5vw,28px) }
+  .footer-brand img { height:clamp(30px,7vw,40px) }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- HEADER -->
+<header class="site-header">
+  <img src="assets/logo-branca.webp" alt="Tijolinho Eco" class="logo" width="160" height="38">
+  <a href="#preco" class="hcta"><span class="pulse"></span>Acessar por R$ 147</a>
+</header>
+
+<!-- HERO -->
+<section class="card-section hero">
+  <div class="section-inner">
+    <div class="hero-content">
+      <div class="hero-badge"><span class="dot"></span>E-book + Mini Curso · 5 Aulas em Vídeo</div>
+      <h1 class="disp">
+        <span class="l1">Antes de</span>
+        <span class="l2">construir.</span>
+        <em>o guia honesto.</em>
+      </h1>
+      <p class="hero-sub">
+        Eng. <strong>Failon Menezes</strong> — fabricante, projetista e construtor em tijolo ecológico — reuniu o que ele gostaria de saber antes de começar. <strong>Inclusive o que ninguém te conta.</strong>
+      </p>
+      <div class="hero-ctas">
+        <a href="#preco" class="btn btn-primary btn-lg">
+          <span class="cta-long">Quero entrar na obra sabendo o que faço</span>
+          <span class="cta-short">Acessar o kit agora</span>
+          <span class="arr"></span>
+        </a>
+        <a href="#reels" class="btn btn-ghost-light btn-lg">Ver provas reais</a>
+      </div>
+      <span class="hero-guarantee">7 dias de garantia · acesso imediato · vitalício</span>
+    </div>
+
+    <aside class="hero-meta">
+      <div class="hero-breakout">
+        <img src="assets/foto-failon.webp" class="hero-breakout-photo" alt="Eng. Failon Menezes" width="320" height="540" loading="eager">
+        <div class="hero-breakout-card"></div>
+        <div class="hero-breakout-label">
+          <strong>Failon Menezes</strong>
+          <span>Eng. Civil · Tijolinho Eco · CREA-BA</span>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="card-section stats-strip">
+  <div class="stats-inner">
+    <div class="stat">
+      <div class="stat-num">40%</div>
+      <div class="stat-lbl">de economia<br>possível na obra</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">5</div>
+      <div class="stat-lbl">aulas em vídeo<br>do zero</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">80%</div>
+      <div class="stat-lbl">menos entulho<br>no canteiro</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">12+</div>
+      <div class="stat-lbl">anos de canteiro<br>do Failon</div>
+    </div>
+  </div>
+</section>
+
+<!-- MÉTODO -->
+<section class="card-section metodo">
+  <div class="section-inner">
+    <div class="metodo-text">
+      <span class="eyebrow">O método, antes da obra</span>
+      <h2 class="sec-h">A diferença entre uma parede que <em>dura</em> — e uma que precisa ser refeita.</h2>
+      <p>Tijolo ecológico bem feito é mais rápido, mais econômico e mais sustentável. <strong>Mal feito, custa o dobro do tradicional.</strong> Não é a peça que decide. É o método.</p>
+      <p>Esse material existe para que você entre na obra com as perguntas certas para fazer ao fabricante, ao projetista e ao pedreiro — antes do primeiro tijolo virar parede.</p>
+      <ul class="metodo-points">
+        <li>Como identificar um fabricante sério antes de fechar pedido.</li>
+        <li>O que perguntar ao arquiteto antes de assinar o projeto.</li>
+        <li>Os 4 erros de execução que dobram o orçamento da obra.</li>
+        <li>Quando o tijolo ecológico <strong>não</strong> é a melhor escolha.</li>
+      </ul>
+    </div>
+    <div></div>
+  </div>
+</section>
+
+<!-- KIT -->
+<section class="card-section kit" id="kit">
+  <div class="section-inner">
+    <div class="kit-head">
+      <span class="eyebrow">O que você recebe</span>
+      <h2 class="sec-h">Tudo <em>antes</em> de colocar<br>o primeiro tijolo.</h2>
+      <p>Um guia completo e 5 aulas em vídeo — com quem vive o método no canteiro todos os dias. Direto, técnico, honesto.</p>
+    </div>
+    <div class="kit-grid">
+      <article class="kit-card ebook">
+        <div class="kit-card-img">
+          <img src="assets/capa-ebook.webp" alt="Capa do e-book Antes de Construir" width="640" height="640" loading="lazy">
+        </div>
+        <div class="kit-card-body">
+          <span class="kit-tag">E-book · PDF</span>
+          <h3>Antes de<br><em>construir</em></h3>
+          <p class="kit-lead">Guia prático para quem quer construir sem cair nas armadilhas que só aparecem depois que a obra começa.</p>
+          <ul class="kit-list">
+            <li>Como economizar até 40% — e o que precisa estar certo para isso.</li>
+            <li>Como identificar um fabricante sério antes de fechar pedido.</li>
+            <li>O que perguntar para o arquiteto antes de contratar.</li>
+            <li>Os erros de execução mais comuns — e como evitar cada um.</li>
+            <li>Quando o tijolo ecológico <em>não</em> é a melhor escolha.</li>
+          </ul>
+        </div>
+      </article>
+      <article class="kit-card curso">
+        <div class="kit-card-img">
+          <img src="assets/thumb-curso.webp" alt="Thumbnail do Mini Curso Tijolo Ecológico do Zero" width="640" height="640" loading="lazy">
+        </div>
+        <div class="kit-card-body">
+          <span class="kit-tag">Mini Curso · 5 Aulas em Vídeo</span>
+          <h3>Tijolo Ecológico<br><em>do zero</em></h3>
+          <p class="kit-lead">Eng. Failon Menezes explica o método do início ao fim. Sem papo de vendedor. Com os pontos negativos incluídos.</p>
+          <ul class="kit-list">
+            <li>O que é o tijolo ecológico — e do que ele é feito na prática.</li>
+            <li>Por que é mais econômico — e quando, sinceramente, não é.</li>
+            <li>Desmontando os mitos que circulam na internet.</li>
+            <li>Como funciona o sistema estrutural e a elétrica embutida.</li>
+            <li>Problemas reais de canteiro e como resolver cada um.</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- REELS / PROVA SOCIAL -->
+<section class="card-section reels" id="reels">
+  <div class="section-inner">
+    <div class="reels-head">
+      <div>
+        <span class="eyebrow on-dark">Prova social · @tijolinhoeco</span>
+        <h2 class="sec-h">O canteiro fala por si — <em>nos reels da Tijolinho.</em></h2>
+      </div>
+      <aside class="reels-side">
+        <div class="reels-handle">
+          <div class="ig-mark"><span class="ig-dot"></span></div>
+          <div class="h-text">
+            <strong>@tijolinhoeco</strong>
+            <span>Instagram oficial · obras reais</span>
+          </div>
+        </div>
+        <p>Reels gravados em canteiro de obra — tijolo na mão, parede sendo assentada, método em uso. O mesmo conteúdo que está dentro do kit.</p>
+        <a href="https://www.instagram.com/tijolinhoeco/" target="_blank" rel="noopener" class="ig-link">Abrir perfil no Instagram <span class="arr"></span></a>
+      </aside>
+    </div>
+
+    <div class="reels-grid">
+      <div class="reel-embed">
+        <iframe src="https://www.instagram.com/reel/DVGUdeQjsfa/embed/" frameborder="0" scrolling="no" allowtransparency="true" allow="autoplay; encrypted-media" title="Reel Tijolinho Eco 1" loading="lazy"></iframe>
+      </div>
+      <div class="reel-embed">
+        <iframe src="https://www.instagram.com/reel/DYiX_krRZLe/embed/" frameborder="0" scrolling="no" allowtransparency="true" allow="autoplay; encrypted-media" title="Reel Tijolinho Eco 2" loading="lazy"></iframe>
+      </div>
+      <div class="reel-embed">
+        <iframe src="https://www.instagram.com/reel/DYuRva-xXmN/embed/" frameborder="0" scrolling="no" allowtransparency="true" allow="autoplay; encrypted-media" title="Reel Tijolinho Eco 3" loading="lazy"></iframe>
+      </div>
+    </div>
+
+    <div class="reels-cta-row">
+      <p>Mais de uma centena de vídeos curtos sobre <strong>como o tijolo ecológico se comporta no canteiro real</strong> — assista no Instagram e siga para acompanhar cada obra.</p>
+      <a href="https://www.instagram.com/tijolinhoeco/" target="_blank" rel="noopener" class="btn btn-primary">Seguir @tijolinhoeco<span class="arr"></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- AUTOR -->
+<section class="card-section autor" id="autor">
+  <div class="section-inner">
+    <div class="autor-photo">
+      <img src="assets/foto-failon.webp" alt="Eng. Failon Menezes — Tijolinho Eco" width="400" height="480" loading="lazy">
+      <div class="name-tag">
+        <strong>Failon Menezes</strong>
+        <span>Engenheiro Civil · Tijolinho Eco · CREA-BA</span>
+      </div>
+    </div>
+    <div class="autor-text">
+      <span class="eyebrow">Quem ensina</span>
+      <h2 class="sec-h">Não fala de tijolo<br><em>de fora.</em></h2>
+      <p class="autor-cargo">Engenheiro Civil · Fabricante · Projetista · Construtor · Vitória da Conquista, BA</p>
+      <p>Failon fabrica, projeta e executa obras com tijolo ecológico todos os dias — na <strong>Tijolinho Eco</strong>, referência no segmento.</p>
+      <p>Foi pesquisando o método para viabilizar a própria obra que entrou no tijolo ecológico. <strong>Não por marketing. Por técnica.</strong> E é exatamente por conhecer as dificuldades do método tradicional que ele não consegue mais indicá-lo para quem está começando.</p>
+      <div class="autor-pull">
+        <span class="qm">"</span>
+        <blockquote>O erro mais caro que vejo repetir no canteiro não é técnico. <em>É não saber a pergunta certa antes de começar.</em></blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PREÇO -->
+<section class="card-section preco" id="preco">
+  <div class="section-inner">
+    <div class="preco-left">
+      <span class="eyebrow">Oferta de lançamento</span>
+      <h2 class="sec-h">Entre na obra <em>sabendo</em><br>o que está fazendo.</h2>
+      <p>E-book completo + Mini Curso em 5 aulas em vídeo. Acesso imediato. Para sempre.</p>
+      <ul class="preco-incl">
+        <li>E-book <em>Antes de Construir</em> — versão atualizada 2026</li>
+        <li>Mini Curso <em>Tijolo Ecológico do Zero</em> — 5 aulas em vídeo</li>
+        <li>Checklist inteligente de obra para imprimir</li>
+        <li>Consultoria técnica de 1h com o Eng. Failon</li>
+        <li>Grupo no WhatsApp para tirar 10 dúvidas</li>
+        <li>Acesso vitalício com todas as atualizações</li>
+      </ul>
+    </div>
+
+    <div class="preco-card">
+      <div class="preco-sticker">
+        <span class="sfrom">a partir de</span>
+        <span class="sval">R$147</span>
+        <span class="sextra">à vista</span>
+      </div>
+      <span class="plabel">Kit completo · oferta de lançamento</span>
+      <span class="preco-de">De R$ 247,00 por apenas</span>
+      <span class="preco-val">R$147<span class="cents">,00</span></span>
+      <span class="preco-parc">ou em até 12× de R$ 14,60 no cartão</span>
+      <a href="https://pay.hotmart.com/N99759179O?hotfeature=51" class="btn btn-primary">Acessar agora<span class="arr"></span></a>
+      <div class="guar">
+        <span class="ic">✓</span>
+        <span>7 dias de garantia incondicional.<br>Devolução sem perguntas, sem burocracia.</span>
+      </div>
+      <div class="preco-pay">PIX · Cartão de crédito · Boleto · Hotmart</div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="card-section faq" id="faq">
+  <div class="section-inner">
+    <div class="faq-head">
+      <span class="eyebrow">Dúvidas frequentes</span>
+      <h2 class="sec-h">Antes de você<br><em>perguntar.</em></h2>
+      <p>Se mesmo assim tiver uma dúvida, chama no Instagram <strong>@tijolinhoeco</strong>.</p>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item" open>
+        <summary>Preciso ter conhecimento técnico?<span class="tog">+</span></summary>
+        <p>Não. O material foi feito para iniciantes. Famílias que nunca viram um tijolo ecológico chegaram ao fim do curso e aplicaram o conhecimento na própria obra.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Por quanto tempo vou ter acesso?<span class="tog">+</span></summary>
+        <p>Acesso vitalício. Consulte antes, durante e depois da obra. As atualizações do material estão incluídas, sem custo extra.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Serve para quem ainda está planejando?<span class="tog">+</span></summary>
+        <p>Exatamente para essa fase. Antes de contratar fabricante, engenheiro ou pedreiro é o momento certo para ter essas informações. Quem chega com o material no início economiza muito mais.</p>
+      </details>
+      <details class="faq-item">
+        <summary>E se eu não gostar do material?<span class="tog">+</span></summary>
+        <p>7 dias de garantia incondicional. Pede o reembolso direto na Hotmart e recebe 100% do valor. Sem questionamento.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Como recebo o acesso depois da compra?<span class="tog">+</span></summary>
+        <p>Liberação imediata após confirmação do pagamento (segundos no PIX e cartão; até 2 dias no boleto). O acesso chega no seu e-mail e fica salvo na sua conta Hotmart para sempre.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="card-section final-cta">
+  <div class="section-inner">
+    <span class="eyebrow">A última chance antes da obra começar</span>
+    <h2 class="disp">A obra vai começar.<br><em>o que você vai</em><br>saber antes?</h2>
+    <p>Quem entra sem informação descobre os erros quando a parede já está levantada. Esse material existe exatamente para que isso não aconteça com você.</p>
+    <a href="https://pay.hotmart.com/N99759179O?hotfeature=51" class="btn btn-dark btn-lg">Acessar agora por R$ 147<span class="arr"></span></a>
+    <div class="final-meta">
+      <span>7 dias de garantia</span>
+      <span>Acesso imediato</span>
+      <span>Vitalício</span>
+      <span>PIX · Cartão · Boleto</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <img src="assets/logo-branca.webp" alt="Tijolinho Eco" width="200" height="52" loading="lazy">
+      <p>Tijolinho Eco é a marca do Eng. Failon Menezes — fabricante, projetista e construtor em tijolo ecológico em Vitória da Conquista, BA. Construindo com consciência técnica desde 2013.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Conteúdo</h4>
+      <ul>
+        <li><a href="#kit">O Material</a></li>
+        <li><a href="#reels">Provas Reais</a></li>
+        <li><a href="#autor">Quem ensina</a></li>
+        <li><a href="#faq">Dúvidas</a></li>
+        <li><a href="#preco">Acessar</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contato</h4>
+      <ul>
+        <li><a href="https://www.instagram.com/tijolinhoeco/" target="_blank" rel="noopener">@tijolinhoeco</a></li>
+        <li><a href="https://www.instagram.com/tijolinhoeco/" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://pay.hotmart.com/N99759179O?hotfeature=51" target="_blank" rel="noopener">Comprar agora</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Tijolinho Eco · Vitória da Conquista, BA</span>
+    <span>Compra processada via Hotmart · Pagamento seguro</span>
+  </div>
+</footer>
+
+</div>
+
+<!-- Mobile sticky CTA -->
+<div class="sticky-cta" id="stickyCta">
+  <a href="#preco">Acessar por R$ 147 — acesso imediato</a>
+</div>
+
+<script>
+  const hero = document.querySelector('.hero');
+  const stickyCta = document.getElementById('stickyCta');
+  if (hero && stickyCta) {
+    const observer = new IntersectionObserver(
+      ([e]) => { stickyCta.style.display = e.isIntersecting ? 'none' : 'block'; },
+      { threshold: 0 }
+    );
+    observer.observe(hero);
+    stickyCta.style.display = 'none';
+  }
+</script>
+
+</body>
+</html>
