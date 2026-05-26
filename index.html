@@ -118,39 +118,6 @@ a { color:inherit }
   position:relative; z-index:2;
 }
 
-/* =====================================================================
-   HEADER
-   ===================================================================== */
-.site-header {
-  background:var(--te-green-dark);
-  backdrop-filter:blur(10px);
-  border-radius:999px;
-  padding:clamp(8px,1vw,12px) clamp(14px,1.6vw,20px) clamp(8px,1vw,12px) clamp(18px,2vw,28px);
-  display:flex; align-items:center; justify-content:space-between;
-  box-shadow:var(--shadow-1);
-  position:sticky; top:clamp(10px,1vw,16px);
-  z-index:100;
-}
-.site-header .logo { height:clamp(28px,3vw,38px) }
-.hcta {
-  background:var(--te-orange);
-  color:#fff;
-  padding:clamp(9px,1vw,12px) clamp(16px,1.8vw,22px);
-  border-radius:999px;
-  font-size:clamp(12px,1.2vw,14px);
-  font-weight:700;
-  text-decoration:none;
-  display:inline-flex; align-items:center; gap:10px;
-  transition:background var(--dur-base);
-  white-space:nowrap;
-}
-.hcta:hover { background:var(--te-orange-700) }
-.hcta .pulse {
-  width:8px; height:8px;
-  background:#fff; border-radius:50%;
-  box-shadow:0 0 0 3px rgba(255,255,255,0.2);
-  animation:pulse 2.2s ease-in-out infinite;
-}
 @keyframes pulse {
   0%,100% { box-shadow:0 0 0 3px rgba(140,218,85,0.18) }
   50% { box-shadow:0 0 0 7px rgba(140,218,85,0.06) }
@@ -462,121 +429,6 @@ a { color:inherit }
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Ccircle cx='10' cy='10' r='8' fill='%238CDA55'/%3E%3Cpath d='M8.2 7l5.6 3-5.6 3V7z' fill='%231C1F18'/%3E%3C/svg%3E");
 }
 
-/* =====================================================================
-   REELS
-   ===================================================================== */
-.reels { background:var(--te-green-dark); position:relative; overflow:hidden }
-.reels::before {
-  content:"";
-  position:absolute; inset:0;
-  background:url('assets/brick-texture.svg') center/clamp(280px,30vw,440px);
-  opacity:0.06;
-  pointer-events:none;
-}
-.reels .section-inner { display:flex; flex-direction:column; gap:clamp(32px,4vw,52px); position:relative }
-.reels-head {
-  display:grid; grid-template-columns:1.4fr 1fr;
-  gap:clamp(24px,3vw,44px); align-items:end;
-}
-.reels-head h2 {
-  font-size:clamp(34px,4.6vw,62px);
-  color:var(--te-cream);
-  margin-top:14px;
-}
-.reels-head h2 em { color:var(--te-green-light) }
-.reels-side {
-  background:rgba(245,237,224,0.05);
-  border:1px solid rgba(140,218,85,0.18);
-  border-radius:clamp(14px,1.6vw,20px);
-  padding:clamp(18px,2vw,24px);
-  display:flex; flex-direction:column; gap:14px;
-}
-.reels-handle { display:flex; align-items:center; gap:12px }
-.reels-handle .ig-mark {
-  width:42px; height:42px; flex-shrink:0;
-  border-radius:11px;
-  background:conic-gradient(from 220deg at 30% 110%, #FFDD55 0deg, #FF543E 90deg, #C837AB 170deg, #4f5bd5 270deg, #FFDD55 360deg);
-  position:relative;
-  display:flex; align-items:center; justify-content:center;
-}
-.reels-handle .ig-mark::before {
-  content:"";
-  position:absolute; inset:7px;
-  border:2px solid #fff; border-radius:8px;
-}
-.reels-handle .ig-mark::after {
-  content:"";
-  position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
-  width:11px; height:11px;
-  border:2px solid #fff; border-radius:50%;
-}
-.reels-handle .ig-dot {
-  position:absolute; top:9px; right:9px;
-  width:4px; height:4px; background:#fff; border-radius:50%;
-}
-.reels-handle .h-text strong {
-  display:block;
-  font-family:var(--font-body); font-weight:700;
-  font-size:clamp(14px,1.4vw,16px);
-  color:var(--te-cream);
-}
-.reels-handle .h-text span {
-  font-size:clamp(11px,1.05vw,13px);
-  color:rgba(245,237,224,0.55);
-}
-.reels-side p {
-  font-size:clamp(13px,1.25vw,15px);
-  color:rgba(245,237,224,0.72);
-  line-height:1.6;
-}
-.reels-side .ig-link {
-  display:inline-flex; align-items:center; gap:8px;
-  text-decoration:none;
-  font-size:clamp(12px,1.2vw,14px);
-  font-weight:600;
-  color:var(--te-green-light);
-  margin-top:2px;
-  transition:color var(--dur-base);
-}
-.reels-side .ig-link:hover { color:var(--te-cream) }
-.reels-side .ig-link .arr {
-  width:7px; height:7px;
-  border-top:2px solid currentColor; border-right:2px solid currentColor;
-  transform:rotate(45deg);
-}
-.reels-grid {
-  display:grid;
-  grid-template-columns:repeat(3, 1fr);
-  gap:clamp(12px,1.4vw,18px);
-  max-width:880px;
-  margin:0 auto;
-  width:100%;
-}
-.reel-embed {
-  border-radius:clamp(14px,1.6vw,20px);
-  overflow:hidden;
-  background:#111;
-  position:relative;
-  aspect-ratio:9/16;
-}
-.reel-embed iframe {
-  position:absolute; inset:0;
-  width:100%; height:100%;
-  border:0;
-}
-.reels-cta-row {
-  display:flex; justify-content:space-between; align-items:center;
-  flex-wrap:wrap; gap:18px;
-  padding-top:clamp(16px,2vw,24px);
-  border-top:1px solid rgba(245,237,224,0.1);
-}
-.reels-cta-row p {
-  font-size:clamp(13px,1.25vw,15px);
-  color:rgba(245,237,224,0.7);
-  max-width:520px;
-  line-height:1.55;
-}
-.reels-cta-row p strong { color:var(--te-cream); font-weight:600 }
 
 /* =====================================================================
    AUTOR
@@ -828,62 +680,6 @@ a { color:inherit }
 .final-meta span { display:inline-flex; align-items:center; gap:8px }
 .final-meta span::before { content:""; width:6px; height:6px; background:var(--te-green-dark); border-radius:50% }
 
-/* =====================================================================
-   FOOTER
-   ===================================================================== */
-.footer {
-  background:var(--te-green-dark);
-  border-radius:clamp(20px,2.4vw,32px);
-  padding:clamp(40px,5vw,64px) clamp(24px,4vw,64px) clamp(24px,2.8vw,36px);
-  color:var(--te-cream);
-}
-.footer-top {
-  display:grid; grid-template-columns:2fr 1fr 1fr;
-  gap:clamp(28px,4vw,56px);
-  padding-bottom:clamp(24px,3vw,40px);
-  border-bottom:1px solid rgba(245,237,224,0.1);
-}
-.footer-brand img { height:clamp(38px,4vw,52px); margin-bottom:clamp(14px,1.6vw,20px) }
-.footer-brand p { font-size:clamp(13px,1.2vw,15px); color:rgba(245,237,224,0.55); line-height:1.7; max-width:380px }
-.footer-col h4 {
-  font-size:11px; font-weight:700; text-transform:uppercase;
-  letter-spacing:0.2em; color:var(--te-green-light);
-  margin-bottom:14px;
-}
-.footer-col ul { list-style:none; display:flex; flex-direction:column; gap:10px }
-.footer-col a {
-  color:rgba(245,237,224,0.7);
-  font-size:clamp(13px,1.2vw,15px);
-  text-decoration:none; transition:color var(--dur-base);
-}
-.footer-col a:hover { color:var(--te-orange) }
-.footer-bottom {
-  padding-top:clamp(18px,2vw,26px);
-  display:flex; justify-content:space-between; align-items:center;
-  font-size:clamp(11px,1vw,13px);
-  color:rgba(245,237,224,0.4);
-  letter-spacing:0.04em;
-  flex-wrap:wrap; gap:12px;
-}
-
-/* =====================================================================
-   MOBILE STICKY CTA
-   ===================================================================== */
-.sticky-cta {
-  display:none;
-  position:fixed; bottom:0; left:0; right:0; z-index:200;
-  padding:12px 16px;
-  background:var(--te-green-dark);
-  border-top:1px solid rgba(245,237,224,0.1);
-}
-.sticky-cta a {
-  display:block; width:100%;
-  background:var(--te-orange); color:#fff;
-  text-align:center; padding:16px;
-  border-radius:var(--radius-md);
-  font-weight:700; font-size:15px;
-  text-decoration:none; letter-spacing:0.04em;
-}
 
 .cta-short { display:none }
 .cta-long  { display:inline }
@@ -916,8 +712,6 @@ a { color:inherit }
       linear-gradient(180deg, rgba(245,237,224,0.96) 0%, rgba(245,237,224,0.86) 70%),
       url('assets/section-bg.webp') center / cover no-repeat;
   }
-  .reels-head { grid-template-columns:1fr; gap:24px }
-  .reels-grid { grid-template-columns:repeat(3,1fr); max-width:100% }
 }
 
 @media (max-width:860px) {
@@ -939,17 +733,11 @@ a { color:inherit }
   .kit-grid { grid-template-columns:1fr }
   .kit-card-img { aspect-ratio:16/9 }
   .kit-card h3 { font-size:clamp(24px,6vw,36px) }
-  .reels-grid { grid-template-columns:repeat(2,1fr) }
-  .reels-head h2 { font-size:clamp(28px,6vw,44px) }
   .autor .section-inner { grid-template-columns:1fr; gap:28px }
   .autor-photo { aspect-ratio:4/3; max-height:320px }
   .preco .section-inner { grid-template-columns:1fr; gap:32px }
   .faq .section-inner { grid-template-columns:1fr; gap:24px }
   .faq-head p { max-width:100% }
-  .footer-top { grid-template-columns:1fr; gap:24px }
-  .site-nav { display:none }
-  .sticky-cta { display:block }
-  body { padding-bottom:76px }
 }
 
 @media (max-width:520px) {
@@ -971,30 +759,21 @@ a { color:inherit }
   .kit-card h3 { font-size:clamp(22px,6.5vw,30px) }
   .kit-lead { font-size:13px }
   .kit-list li { font-size:13px }
-  .reels-grid { grid-template-columns:1fr; max-width:320px; margin:0 auto }
   .preco-sticker { width:86px; height:86px; top:-18px; right:-10px }
   .preco-sticker .sval { font-size:20px }
   .preco-val { font-size:clamp(52px,14vw,72px) }
   .final-cta h2 { font-size:clamp(34px,10vw,50px) }
-  .footer { border-radius:clamp(16px,4vw,22px); padding:clamp(28px,6vw,40px) clamp(16px,5vw,24px) clamp(20px,5vw,28px) }
-  .footer-brand img { height:clamp(30px,7vw,40px) }
 }
 </style>
 </head>
 <body>
 <div class="page">
 
-<!-- HEADER -->
-<header class="site-header">
-  <img src="assets/logo-branca.webp" alt="Tijolinho Eco" class="logo" width="160" height="38">
-  <a href="#preco" class="hcta"><span class="pulse"></span>Acessar por R$ 147</a>
-</header>
-
 <!-- HERO -->
 <section class="card-section hero">
   <div class="section-inner">
     <div class="hero-content">
-      <div class="hero-badge"><span class="dot"></span>E-book + Mini Curso · 5 Aulas em Vídeo</div>
+      <img src="assets/logo-tijolinho.webp" alt="Tijolinho Eco" width="200" height="60" style="height:clamp(44px,5vw,68px);width:auto;margin-bottom:8px">
       <h1 class="disp">
         <span class="l1">Antes de</span>
         <span class="l2">construir.</span>
@@ -1009,9 +788,8 @@ a { color:inherit }
           <span class="cta-short">Acessar o kit agora</span>
           <span class="arr"></span>
         </a>
-        <a href="#reels" class="btn btn-ghost-light btn-lg">Ver provas reais</a>
       </div>
-      <span class="hero-guarantee">7 dias de garantia · acesso imediato · vitalício</span>
+      <span class="hero-guarantee">7 dias de garantia · acesso imediato</span>
     </div>
 
     <aside class="hero-meta">
@@ -1043,7 +821,7 @@ a { color:inherit }
       <div class="stat-lbl">menos entulho<br>no canteiro</div>
     </div>
     <div class="stat">
-      <div class="stat-num">12+</div>
+      <div class="stat-num">8+</div>
       <div class="stat-lbl">anos de canteiro<br>do Failon</div>
     </div>
   </div>
@@ -1115,45 +893,6 @@ a { color:inherit }
   </div>
 </section>
 
-<!-- REELS / PROVA SOCIAL -->
-<section class="card-section reels" id="reels">
-  <div class="section-inner">
-    <div class="reels-head">
-      <div>
-        <span class="eyebrow on-dark">Prova social · @tijolinhoeco</span>
-        <h2 class="sec-h">O canteiro fala por si — <em>nos reels da Tijolinho.</em></h2>
-      </div>
-      <aside class="reels-side">
-        <div class="reels-handle">
-          <div class="ig-mark"><span class="ig-dot"></span></div>
-          <div class="h-text">
-            <strong>@tijolinhoeco</strong>
-            <span>Instagram oficial · obras reais</span>
-          </div>
-        </div>
-        <p>Reels gravados em canteiro de obra — tijolo na mão, parede sendo assentada, método em uso. O mesmo conteúdo que está dentro do kit.</p>
-        <a href="https://www.instagram.com/tijolinhoeco/" target="_blank" rel="noopener" class="ig-link">Abrir perfil no Instagram <span class="arr"></span></a>
-      </aside>
-    </div>
-
-    <div class="reels-grid">
-      <div class="reel-embed">
-        <iframe src="https://www.instagram.com/reel/DVGUdeQjsfa/embed/" frameborder="0" scrolling="no" allowtransparency="true" allow="autoplay; encrypted-media" title="Reel Tijolinho Eco 1" loading="lazy"></iframe>
-      </div>
-      <div class="reel-embed">
-        <iframe src="https://www.instagram.com/reel/DYiX_krRZLe/embed/" frameborder="0" scrolling="no" allowtransparency="true" allow="autoplay; encrypted-media" title="Reel Tijolinho Eco 2" loading="lazy"></iframe>
-      </div>
-      <div class="reel-embed">
-        <iframe src="https://www.instagram.com/reel/DYuRva-xXmN/embed/" frameborder="0" scrolling="no" allowtransparency="true" allow="autoplay; encrypted-media" title="Reel Tijolinho Eco 3" loading="lazy"></iframe>
-      </div>
-    </div>
-
-    <div class="reels-cta-row">
-      <p>Mais de uma centena de vídeos curtos sobre <strong>como o tijolo ecológico se comporta no canteiro real</strong> — assista no Instagram e siga para acompanhar cada obra.</p>
-      <a href="https://www.instagram.com/tijolinhoeco/" target="_blank" rel="noopener" class="btn btn-primary">Seguir @tijolinhoeco<span class="arr"></span></a>
-    </div>
-  </div>
-</section>
 
 <!-- AUTOR -->
 <section class="card-section autor" id="autor">
@@ -1189,10 +928,7 @@ a { color:inherit }
       <ul class="preco-incl">
         <li>E-book <em>Antes de Construir</em> — versão atualizada 2026</li>
         <li>Mini Curso <em>Tijolo Ecológico do Zero</em> — 5 aulas em vídeo</li>
-        <li>Checklist inteligente de obra para imprimir</li>
-        <li>Consultoria técnica de 1h com o Eng. Failon</li>
-        <li>Grupo no WhatsApp para tirar 10 dúvidas</li>
-        <li>Acesso vitalício com todas as atualizações</li>
+        <li>Acesso imediato após confirmação do pagamento</li>
       </ul>
     </div>
 
@@ -1206,12 +942,12 @@ a { color:inherit }
       <span class="preco-de">De R$ 247,00 por apenas</span>
       <span class="preco-val">R$147<span class="cents">,00</span></span>
       <span class="preco-parc">ou em até 12× de R$ 14,60 no cartão</span>
-      <a href="https://pay.hotmart.com/N99759179O?hotfeature=51" class="btn btn-primary">Acessar agora<span class="arr"></span></a>
+      <a href="#" class="btn btn-primary">Acessar agora<span class="arr"></span></a>
       <div class="guar">
         <span class="ic">✓</span>
         <span>7 dias de garantia incondicional.<br>Devolução sem perguntas, sem burocracia.</span>
       </div>
-      <div class="preco-pay">PIX · Cartão de crédito · Boleto · Hotmart</div>
+      <div class="preco-pay">PIX · Cartão de crédito</div>
     </div>
   </div>
 </section>
@@ -1255,67 +991,16 @@ a { color:inherit }
     <span class="eyebrow">A última chance antes da obra começar</span>
     <h2 class="disp">A obra vai começar.<br><em>o que você vai</em><br>saber antes?</h2>
     <p>Quem entra sem informação descobre os erros quando a parede já está levantada. Esse material existe exatamente para que isso não aconteça com você.</p>
-    <a href="https://pay.hotmart.com/N99759179O?hotfeature=51" class="btn btn-dark btn-lg">Acessar agora por R$ 147<span class="arr"></span></a>
+    <a href="#preco" class="btn btn-dark btn-lg">Acessar agora por R$ 147<span class="arr"></span></a>
     <div class="final-meta">
       <span>7 dias de garantia</span>
       <span>Acesso imediato</span>
-      <span>Vitalício</span>
-      <span>PIX · Cartão · Boleto</span>
+      <span>PIX · Cartão</span>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="footer-top">
-    <div class="footer-brand">
-      <img src="assets/logo-branca.webp" alt="Tijolinho Eco" width="200" height="52" loading="lazy">
-      <p>Tijolinho Eco é a marca do Eng. Failon Menezes — fabricante, projetista e construtor em tijolo ecológico em Vitória da Conquista, BA. Construindo com consciência técnica desde 2013.</p>
-    </div>
-    <div class="footer-col">
-      <h4>Conteúdo</h4>
-      <ul>
-        <li><a href="#kit">O Material</a></li>
-        <li><a href="#reels">Provas Reais</a></li>
-        <li><a href="#autor">Quem ensina</a></li>
-        <li><a href="#faq">Dúvidas</a></li>
-        <li><a href="#preco">Acessar</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Contato</h4>
-      <ul>
-        <li><a href="https://www.instagram.com/tijolinhoeco/" target="_blank" rel="noopener">@tijolinhoeco</a></li>
-        <li><a href="https://www.instagram.com/tijolinhoeco/" target="_blank" rel="noopener">Instagram</a></li>
-        <li><a href="https://pay.hotmart.com/N99759179O?hotfeature=51" target="_blank" rel="noopener">Comprar agora</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>© 2026 Tijolinho Eco · Vitória da Conquista, BA</span>
-    <span>Compra processada via Hotmart · Pagamento seguro</span>
-  </div>
-</footer>
-
 </div>
-
-<!-- Mobile sticky CTA -->
-<div class="sticky-cta" id="stickyCta">
-  <a href="#preco">Acessar por R$ 147 — acesso imediato</a>
-</div>
-
-<script>
-  const hero = document.querySelector('.hero');
-  const stickyCta = document.getElementById('stickyCta');
-  if (hero && stickyCta) {
-    const observer = new IntersectionObserver(
-      ([e]) => { stickyCta.style.display = e.isIntersecting ? 'none' : 'block'; },
-      { threshold: 0 }
-    );
-    observer.observe(hero);
-    stickyCta.style.display = 'none';
-  }
-</script>
 
 </body>
 </html>
