@@ -206,6 +206,16 @@ a { color:inherit }
   position:relative;
   width:clamp(330px,31vw,462px);
 }
+.hero-breakout::after {
+  content:"";
+  position:absolute;
+  left:0; right:0; bottom:0;
+  height:60%;
+  border-radius:0 0 clamp(16px,1.8vw,22px) clamp(16px,1.8vw,22px);
+  background:linear-gradient(to top, rgba(10,14,8,0.88) 0%, rgba(10,14,8,0.52) 38%, transparent 100%);
+  z-index:3;
+  pointer-events:none;
+}
 .hero-breakout-photo {
   display:block;
   position:relative;
@@ -239,7 +249,7 @@ a { color:inherit }
   bottom:clamp(14px,1.8vw,22px);
   left:clamp(-6px,0.5vw,0px);
   right:clamp(-6px,0.5vw,0px);
-  z-index:3;
+  z-index:4;
   padding:0 clamp(12px,1.4vw,16px);
 }
 .hero-breakout-label strong {
