@@ -335,6 +335,17 @@ a { color:inherit }
   margin-bottom:14px;
 }
 .metodo-text p strong { color:var(--te-green-dark); font-weight:600 }
+.metodo-historia {
+  background:rgba(28,31,24,0.05);
+  border-left:3px solid var(--te-orange);
+  border-radius:0 clamp(8px,1vw,12px) clamp(8px,1vw,12px) 0;
+  padding:clamp(14px,1.6vw,20px) clamp(16px,1.8vw,22px);
+  font-size:clamp(13px,1.25vw,15px);
+  color:var(--te-ink-soft);
+  line-height:1.7;
+  font-style:italic;
+  margin-top:clamp(14px,1.6vw,20px);
+}
 .metodo-points {
   list-style:none; display:flex; flex-direction:column;
   gap:clamp(8px,1vw,12px); margin-top:clamp(20px,2.4vw,30px);
@@ -369,6 +380,16 @@ a { color:inherit }
   margin-top:14px; margin-bottom:14px;
 }
 .kit-head h2 em { color:var(--te-orange) }
+.kit-para-quem {
+  text-align:center;
+  margin-top:clamp(28px,3vw,40px);
+  font-size:clamp(13px,1.2vw,15px);
+  color:var(--te-ink-soft);
+  line-height:1.65;
+  max-width:560px;
+  margin-left:auto; margin-right:auto;
+  opacity:0.8;
+}
 .kit-head p {
   font-size:clamp(15px,1.4vw,18px);
   color:var(--te-ink-soft); line-height:1.65;
@@ -512,6 +533,15 @@ a { color:inherit }
   letter-spacing:-0.005em; line-height:1.32;
 }
 .autor-pull blockquote em { font-style:italic; color:var(--te-orange) }
+.autor-resultado {
+  margin-top:clamp(18px,2vw,26px);
+  font-size:clamp(14px,1.3vw,16px);
+  color:var(--te-ink-soft);
+  line-height:1.68;
+  font-style:italic;
+  border-left:3px solid var(--te-orange);
+  padding-left:clamp(14px,1.6vw,18px);
+}
 
 /* =====================================================================
    PREÇO
@@ -790,7 +820,7 @@ a { color:inherit }
         <em>o guia honesto.</em>
       </h1>
       <p class="hero-sub">
-        Eng. <strong>Failon Menezes</strong> — fabricante, projetista e construtor em tijolo ecológico — reuniu o que ele gostaria de saber antes de começar. <strong>Inclusive o que ninguém te conta.</strong>
+        Eng. <strong>Failon Menezes</strong> — fabricante, projetista e construtor em tijolo ecológico — reuniu tudo que você precisa entender sobre tijolo ecológico antes de tomar qualquer decisão. <strong>Inclusive o que ninguém te conta.</strong>
       </p>
       <div class="hero-ctas">
         <a href="#preco" class="btn btn-primary btn-lg">
@@ -844,7 +874,8 @@ a { color:inherit }
       <span class="eyebrow">O método, antes da obra</span>
       <h2 class="sec-h">A diferença entre uma parede que <em>dura</em> — e uma que precisa ser refeita.</h2>
       <p>Tijolo ecológico bem feito é mais rápido, mais econômico e mais sustentável. <strong>Mal feito, custa o dobro do tradicional.</strong> Não é a peça que decide. É o método.</p>
-      <p>Esse material existe para que você entre na obra com as perguntas certas para fazer ao fabricante, ao projetista e ao pedreiro — antes do primeiro tijolo virar parede.</p>
+      <p>Esse material existe para que você entenda como o método realmente funciona — o que é verdade, o que é mito, o que pode dar errado e o que precisa estar certo para a economia acontecer de verdade.</p>
+      <p class="metodo-historia">Ela pesquisou meses. Comparou fabricante. Fez tudo que o YouTube mandava. Quando a parede ficou pronta, o pedreiro já tinha concretado todos os furos. Refazer custou mais do que a obra inteira tinha economizado. O problema não foi o tijolo. Foi ninguém ter explicado o que perguntar antes de começar.</p>
       <ul class="metodo-points">
         <li>Como identificar um fabricante sério antes de fechar pedido.</li>
         <li>O que perguntar ao arquiteto antes de assinar o projeto.</li>
@@ -900,6 +931,7 @@ a { color:inherit }
         </div>
       </article>
     </div>
+    <p class="kit-para-quem">Para quem quer entender o método antes de tomar qualquer decisão. Família planejando, profissional aprendendo ou alguém avaliando se o tijolo ecológico faz sentido para a sua situação.</p>
   </div>
 </section>
 
@@ -924,6 +956,7 @@ a { color:inherit }
         <span class="qm">"</span>
         <blockquote>O erro mais caro que vejo repetir no canteiro não é técnico. <em>É não saber a pergunta certa antes de começar.</em></blockquote>
       </div>
+      <p class="autor-resultado">Famílias que nunca tinham visto um tijolo ecológico chegaram ao fim do curso e conduziram a própria obra. A diferença não foi o dinheiro. Foi entrar sabendo o que estava fazendo.</p>
     </div>
   </div>
 </section>
@@ -949,7 +982,7 @@ a { color:inherit }
         <span class="sextra">à vista</span>
       </div>
       <span class="plabel">Kit completo · oferta de lançamento</span>
-      <span class="preco-de">De R$ 247,00 por apenas</span>
+      <span class="preco-de">Valor de lançamento: R$ 147. O preço sobe quando o lançamento encerrar.</span>
       <span class="preco-val">R$147<span class="cents">,00</span></span>
       <span class="preco-parc">ou em até 12× de R$ 14,60 no cartão</span>
       <a href="#" class="btn btn-primary">Acessar agora<span class="arr"></span></a>
@@ -967,7 +1000,7 @@ a { color:inherit }
   <div class="section-inner">
     <div class="faq-head">
       <span class="eyebrow">Dúvidas frequentes</span>
-      <h2 class="sec-h">Antes de você<br><em>perguntar.</em></h2>
+      <h2 class="sec-h">Dúvidas frequentes</h2>
       <p>Se mesmo assim tiver uma dúvida, chama no Instagram <strong>@tijolinhoeco</strong>.</p>
     </div>
     <div class="faq-list">
@@ -998,7 +1031,7 @@ a { color:inherit }
 <!-- FINAL CTA -->
 <section class="card-section final-cta">
   <div class="section-inner">
-    <span class="eyebrow">A última chance antes da obra começar</span>
+    <span class="eyebrow">A obra já está no seu plano.</span>
     <h2 class="disp">A obra vai começar.<br><em>o que você vai</em><br>saber antes?</h2>
     <p>Quem entra sem informação descobre os erros quando a parede já está levantada. Esse material existe exatamente para que isso não aconteça com você.</p>
     <a href="#preco" class="btn btn-dark btn-lg">Acessar agora por R$ 147<span class="arr"></span></a>
